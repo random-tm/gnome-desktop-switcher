@@ -1,0 +1,17 @@
+# Remove all desktop files from local directory and symbolic link to another directory
+# This is to allow switching you list of applications if you have a lot of applications on your machine
+# Designed for Gnome; likely can be modified to work with other distros
+
+# To repeat this will erase all files in the ~/.local/share/applications folder
+# If you understand this please comment or remove the next line
+exit
+cd ~/.local/share/applications
+rm *.desktop
+ln -s /mnt/custom-software/desktop-files/$1/* .
+ln -s /mnt/custom-software/desktop-files/all/* .
+update-desktop-database ~/.local/share/applications
+gsettings set org.gnome.shell app-picker-layout "[]"
+sleep 2 
+killall -SIGQUIT gnome-shell
+sleep 5
+
