@@ -4,7 +4,7 @@
 
 # To repeat this will erase all files in the ~/.local/share/applications folder
 # If you understand this please comment or remove the next line
-# exit
+exit
 cd ~/.local/share/applications
 rm *.desktop
 
