@@ -4,14 +4,17 @@
 
 # To repeat this will erase all files in the ~/.local/share/applications folder
 # If you understand this please comment or remove the next line
-exit
+# exit
 cd ~/.local/share/applications
 rm *.desktop
-ln -s /mnt/custom-software/desktop-files/$1/* .
-ln -s /mnt/custom-software/desktop-files/all/* .
+
+DESKTOP_FILES_PATH=/mnt/md0/custom-software/desktop-files
+
+ln -s $DESKTOP_FILES_PATH/$1/* .
+ln -s $DESKTOP_FILES_PATH/all/* .
+
 update-desktop-database ~/.local/share/applications
 gsettings set org.gnome.shell app-picker-layout "[]"
 sleep 2 
 killall -SIGQUIT gnome-shell
 sleep 5
-
